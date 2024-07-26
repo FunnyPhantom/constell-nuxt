@@ -28,3 +28,5 @@
 
 - [ ] crud data for people (based on the task)
 - [ ] mock data for teams
+
+- [ ] (optional) deploy under moha.movahedmanesh.com
