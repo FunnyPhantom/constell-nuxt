@@ -1,0 +1,123 @@
+$text_main_primary: #17171D
+$text_main_primary-invert: #EFEFEF
+$text_main_seconday: #5F5F5F
+
+$border_main_primary: $text_main_primary
+$border_main_quarternary: #D2D2D2
+
+$background_main_primary: #E2E2E2
+$background_main_primary-invert: #282829
+$background_main_secondary: #EFEFEF
+$background_main_overlay-highlight: #EFEFEF
+
+$color_black: #000000
+
+$breakpoints: (m: 576px, l: 769px)
+
+@mixin respond-to($breakpoint)
+    @if map-has-key($breakpoints, $breakpoint)
+        @media (min-width: map-get($breakpoints, $breakpoint))
+        @content
+
+    @else if type-of($breakpoint) == number
+        @media (min-width: $breakpoint)
+        @content
+
+    @else
+        @warn "Invalid breakpoint: #{$breakpoint}."
+
+// Usage example
+// .example-element
+//     font-size: 14px // Base size for smallest screens
+
+// @include respond-to(m)
+//     font-size: 16px // > 576px
+
+// @include respond-to(l)
+//     font-size: 18px // > 769px
+
+$spacing-01: 4px
+$spacing-02: 8px
+$spacing-03: 16px
+$spacing-04: 24px
+$spacing-05: 32px
+$spacing-06: 48px
+$spacing-07: 64px
+$spacing-08: 120px
+
+*, *:before, *:after
+    box-sizing: border-box
+
+html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, ol, ul, li, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video
+    margin: 0
+    padding: 0
+    border: 0
+    font-size: 100%
+    font: inherit
+    vertical-align: baseline
+    text-rendering: optimizeLegibility
+    -webkit-font-smoothing: antialiased
+    text-size-adjust: none
+
+footer, header, nav, section, main
+    display: block
+
+body
+    line-height: 1
+
+ol, ul
+    list-style: none
+
+blockquote, q
+    quotes: none
+
+blockquote:before, blockquote:after, q:before, q:after
+    content: ''
+    content: none
+
+table
+    border-collapse: collapse
+    border-spacing: 0
+
+input
+    -webkit-appearance: none
+    border-radius: 0
+
+.text-xs
+    font-size: 10px
+    @include respond-to(m)
+        &
+            font-size: 11px
+
+    @include respond-to(l)
+        &
+            font-size: 12px
+.text-sm
+    font-size: 11px
+    @include respond-to(m)
+        &
+            font-size: 12px
+    @include respond-to(l)
+        &
+            font-size: 14px
+
+.text-md
+    font-size: 13px
+    @include respond-to(m)
+        &
+            font-size: 14px
+    @include respond-to(l)
+        &
+            font-size: 16px
+
+.text-lg
+    font-size: 21px
+    @include respond-to(m)
+        &
+            font-size: 24px
+    @include respond-to(l)
+        &
+            font-size: 27px
+
+.text-xl
+    font-size: 45px
