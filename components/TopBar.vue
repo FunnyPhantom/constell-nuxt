@@ -1,4 +1,5 @@
 <template>
+  <div class="container_background"></div>
   <div class="container">
     <div>back</div>
     <div class="title">Venue People</div>
@@ -14,11 +15,19 @@
   display: flex
   justify-content: space-between
   align-items: center
-  padding: $spacing-02 $spacing-02
   background-color: $background_main_primary-invert
   color: $text_main_primary-invert
-  height: 50px
   gap: auto
+  @extend .p-2, .sticky, .top-0, .left-0, .right-0
+  z-index: 1
+
+.container_background
+  background-color: $background_main_primary-invert
+  @extend .fixed,
+  height: 1rem
+  width: 100%
+  top: -0.5rem
+
 
 .title
   font-family: "Cormorant Infant", serif

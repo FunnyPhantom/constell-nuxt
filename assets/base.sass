@@ -1,0 +1,273 @@
+$text_main_primary: #17171D
+$text_main_primary-invert: #EFEFEF
+$text_main_seconday: #5F5F5F
+
+$border_main_primary: #17171D
+$border_main_quarternary: #D2D2D2
+
+$background_main_primary: #E2E2E2
+$background_main_primary-invert: #282829
+$background_main_secondary: #EFEFEF
+$background_main_overlay-highlight: #EFEFEF
+
+$color_black: #000000
+
+$font_main: 'Space Grotesk', sans-serif,
+$font_fancy: 'Cormorant Infant', serif
+
+$breakpoints: (m: 576px, l: 769px)
+
+@mixin respond-to($breakpoint)
+    @if map-has-key($breakpoints, $breakpoint)
+        @media (min-width: map-get($breakpoints, $breakpoint))
+        @content
+
+    @else if type-of($breakpoint) == number
+        @media (min-width: $breakpoint)
+        @content
+
+    @else
+        @warn "Invalid breakpoint: #{$breakpoint}."
+
+// Usage example
+// .example-element
+//     font-size: 14px // Base size for smallest screens
+
+// @include respond-to(m)
+//     font-size: 16px // > 576px
+
+// @include respond-to(l)
+//     font-size: 18px // > 769px
+
+$spacing-01: 4px
+$spacing-02: 8px
+$spacing-03: 16px
+$spacing-04: 24px
+$spacing-05: 32px
+$spacing-06: 48px
+$spacing-07: 64px
+$spacing-08: 120px
+
+*, *:before, *:after
+    box-sizing: border-box
+
+html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, ol, ul, li, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video
+    margin: 0
+    padding: 0
+    border: 0
+    font-size: 100%
+    font: inherit
+    vertical-align: baseline
+    text-rendering: optimizeLegibility
+    -webkit-font-smoothing: antialiased
+    text-size-adjust: none
+
+footer, header, nav, section, main
+    display: block
+
+body
+    line-height: 1
+
+ol, ul
+    list-style: none
+
+blockquote, q
+    quotes: none
+
+blockquote:before, blockquote:after, q:before, q:after
+    content: ''
+    content: none
+
+table
+    border-collapse: collapse
+    border-spacing: 0
+
+input
+    -webkit-appearance: none
+    border-radius: 0
+
+.text-xs
+    font-size: 10px
+    @include respond-to(m)
+        &
+            font-size: 11px
+
+    @include respond-to(l)
+        &
+            font-size: 12px
+.text-sm
+    font-size: 11px
+    @include respond-to(m)
+        &
+            font-size: 12px
+    @include respond-to(l)
+        &
+            font-size: 14px
+
+.text-md
+    font-size: 13px
+    @include respond-to(m)
+        &
+            font-size: 14px
+    @include respond-to(l)
+        &
+            font-size: 16px
+
+.text-lg
+    font-size: 21px
+    @include respond-to(m)
+        &
+            font-size: 24px
+    @include respond-to(l)
+        &
+            font-size: 27px
+
+.text-xl
+    font-size: 45px
+
+.flex
+    display: flex
+.flex-column
+    flex-direction: column
+.flex-row
+    flex-direction: row
+
+// Text Colors
+.text-primary
+    color: $text_main_primary
+.text-primary-invert
+    color: $text_main_primary-invert
+.text-secondary
+    color: $text_main_seconday
+
+// Background Colors
+.bg-primary
+    background-color: $background_main_primary
+.bg-primary-invert
+    background-color: $background_main_primary-invert
+.bg-secondary
+    background-color: $background_main_secondary
+.bg-overlay-highlight
+    background-color: $background_main_overlay-highlight
+
+// Border Colors
+.border-primary
+    border-color: $border_main_primary
+.border-quarternary
+    border-color: $border_main_quarternary
+
+// Font
+.font-main
+    font-family: $font_main
+.font-fancy
+    font-family: $font_fancy
+
+// Spacing Utilities
+$spacing-values: ("1": $spacing-01,"2": $spacing-02,"3": $spacing-03,"4": $spacing-04,"5": $spacing-05,"6": $spacing-06,"7": $spacing-07,"8": $spacing-08)
+
+$spacing-properties: ("m": "margin","p": "padding")
+
+$spacing-directions: ("t": "top","r": "right","b": "bottom","l": "left")
+
+@each $size, $value in $spacing-values
+    @each $prop-short, $property in $spacing-properties
+        .#{$prop-short}-#{$size}
+            #{$property}: $value
+
+        @each $dir-short, $direction in $spacing-directions
+            .#{$prop-short}#{$dir-short}-#{$size}
+                #{$property}-#{$direction}: $value
+
+// Flexbox Utilities
+.justify-start
+    justify-content: flex-start
+.justify-end
+    justify-content: flex-end
+.justify-center
+    justify-content: center
+.justify-between
+    justify-content: space-between
+.justify-around
+    justify-content: space-around
+
+.items-start
+    align-items: flex-start
+.items-end
+    align-items: flex-end
+.items-center
+    align-items: center
+.items-baseline
+    align-items: baseline
+.items-stretch
+    align-items: stretch
+
+// Display Utilities
+.block
+    display: block
+.inline-block
+    display: inline-block
+.inline
+    display: inline
+
+// Position Utilities
+.relative
+    position: relative
+.absolute
+    position: absolute
+.fixed
+    position: fixed
+.sticky
+    position: sticky
+
+.top-0
+    top: 0
+.right-0
+    right: 0
+.bottom-0
+    bottom: 0
+.left-0
+    left: 0
+
+// Width and Height
+.w-full
+    width: 100%
+.h-full
+    height: 100%
+
+// Text Alignment
+.text-left
+    text-align: left
+.text-center
+    text-align: center
+.text-right
+    text-align: right
+
+// Responsive Hide/Show
+.hide-m
+    @include respond-to(m)
+        &
+            display: none
+.hide-l
+    @include respond-to(l)
+        &
+            display: none
+.show-m
+    display: none
+    @include respond-to(m)
+        &
+            display: block
+.show-l
+    display: none
+    @include respond-to(l)
+        &
+            display: block
+
+// Border Radius
+.rounded-sm
+    border-radius: 2px
+.rounded
+    border-radius: 4px
+.rounded-lg
+    border-radius: 8px
+.rounded-full
+    border-radius: 9999px
