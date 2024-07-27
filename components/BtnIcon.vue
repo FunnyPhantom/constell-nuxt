@@ -7,11 +7,15 @@
       'btn-ghost': variant === 'ghost',
       ['invert']: invert,
     }"
+    :style="{
+      width: size ?? '',
+      height: size ?? '',
+    }"
   >
     <Icon
       :icon="icon"
-      :width="width ?? 24"
-      :height="height ?? 24"
+      :width="iconSize ?? 24"
+      :height="iconSize ?? 24"
       :class="iconClass"
     />
   </button>
@@ -25,8 +29,8 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  width: String,
-  height: String,
+  iconSize: Number,
+  size: Number,
   iconClass: String,
   variant: {
     type: String,

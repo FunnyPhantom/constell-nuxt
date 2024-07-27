@@ -6,8 +6,13 @@
       invert
       variant="ghost"
     />
-    <div class="title">Venue People</div>
-    <div>...</div>
+    <div class="title hide-l">Venue People</div>
+    <BtnIcon
+      icon="bi:three-dots-vertical"
+      invert
+      variant="ghost"
+      :icon-size="16"
+    />
   </div>
 </template>
 
