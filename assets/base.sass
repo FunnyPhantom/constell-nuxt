@@ -7,6 +7,7 @@ $border_main_quarternary: #D2D2D2
 
 $background_main_primary: #E2E2E2
 $background_main_primary-invert: #282829
+$background_main_primary-invert-highlight: #060607
 $background_main_secondary: #EFEFEF
 $background_main_overlay-highlight: #EFEFEF
 
@@ -20,11 +21,11 @@ $breakpoints: (m: 576px, l: 769px)
 @mixin respond-to($breakpoint)
     @if map-has-key($breakpoints, $breakpoint)
         @media (min-width: map-get($breakpoints, $breakpoint))
-        @content
+            @content
 
     @else if type-of($breakpoint) == number
         @media (min-width: $breakpoint)
-        @content
+            @content
 
     @else
         @warn "Invalid breakpoint: #{$breakpoint}."
@@ -48,8 +49,13 @@ $spacing-06: 48px
 $spacing-07: 64px
 $spacing-08: 120px
 
+$transition_duration: 0.1s
+
 *, *:before, *:after
     box-sizing: border-box
+
+*
+    transition: all $transition_duration ease-out
 
 html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, ol, ul, li, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video
     margin: 0
@@ -114,7 +120,9 @@ input
             font-size: 16px
 
 .text-lg
-    font-size: 21px
+    font-weight: 500,
+    line-height: 1.2
+    font-size: 23px
     @include respond-to(m)
         &
             font-size: 24px
@@ -149,6 +157,10 @@ input
     background-color: $background_main_secondary
 .bg-overlay-highlight
     background-color: $background_main_overlay-highlight
+.bg-transparent
+    background-color: transparent
+.bg-primary-invert-highlight
+    background-color: $background_main_primary-invert-highlight
 
 // Border Colors
 .border-primary

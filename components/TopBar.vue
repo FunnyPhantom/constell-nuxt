@@ -1,24 +1,25 @@
 <template>
   <div class="container_background"></div>
   <div class="container">
-    <div>back</div>
+    <BtnIcon
+      icon="material-symbols-light:chevron-left-rounded"
+      invert
+      variant="ghost"
+    />
     <div class="title">Venue People</div>
     <div>...</div>
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import BtnIcon from "~/components/BtnIcon.vue";
+</script>
 
 <style lang="sass" scoped>
 
 .container
-  display: flex
-  justify-content: space-between
-  align-items: center
-  background-color: $background_main_primary-invert
-  color: $text_main_primary-invert
-  gap: auto
-  @extend .p-2, .sticky, .top-0, .left-0, .right-0
+  // gap: auto
+  @extend .p-2, .sticky, .top-0, .left-0, .right-0, .text-primary-invert, .bg-primary-invert, .flex, .items-center, .justify-between
   z-index: 1
 
 .container_background
@@ -30,8 +31,5 @@
 
 
 .title
-  font-family: "Cormorant Infant", serif
-  font-weight: 500,
-  line-height: 1.2
-  @extend .text-lg
+  @extend .text-lg, .font-fancy
 </style>
