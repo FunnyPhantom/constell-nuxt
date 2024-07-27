@@ -1,10 +1,13 @@
 <template>
-  <div>This is the first page.</div>
-  <div v-for="i of loremCount" :key="i">
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua.
-    </p>
+  <div class="pb-8 pt-3 gap-4 flex flex-column">
+    <SearchBox />
+    <TeamSection />
+    <div v-for="i of loremCount" :key="i">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+      </p>
+    </div>
   </div>
 </template>
 

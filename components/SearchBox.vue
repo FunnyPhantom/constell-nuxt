@@ -1,13 +1,10 @@
 <template>
-  <div>
-    
-  </div>
+  <div class="flex justify-center items-center px-3 gap-2 search-box"></div>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts" setup></script>
 
-</script>
-
-<style>
-
+<style lang="sass" scoped>
+.search-box
+  min-height: 40px
 </style>
