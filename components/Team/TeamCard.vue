@@ -4,7 +4,7 @@
   >
     <div class="flex items-center gap-2">
       <Avatar :size="36" color="#FFC9C9" borderless />
-      <p>team name</p>
+      <p>back of the house</p>
     </div>
     <BtnIcon class="team-card-buttons" icon="mage:edit-pen" variant="ghost" />
   </div>
@@ -21,7 +21,7 @@
   @include respond-to(l)
     &
       max-width: 350px
-      flex: 1 1 245px
+      flex: 1 1 275px
 .team-card-buttons
   &:hover
     @extend .bg-primary

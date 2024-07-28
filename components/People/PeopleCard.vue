@@ -28,7 +28,6 @@
         <div class="flex flex-column">
           <div class="flex gap-2">
             <p class="font-weight-medium">User Name</p>
-            <p class="font-weight-light">Accountant</p>
           </div>
           <div class="flex gap-1 items-center text-secondary font-weight-light">
             <p>myemail@email.com</p>
@@ -49,17 +48,21 @@
           color="#FFC9C9"
           src="https://picsum.photos/36"
         />
-        <div class="flex flex-column">
-          <div class="flex gap-2">
-            <p class="font-weight-medium">User Name</p>
-            <p class="font-weight-light">Accountant</p>
-          </div>
+        <div class="flex flex-column gap-2">
+          <p class="font-weight-medium">User Name</p>
           <div class="flex gap-1 items-center text-secondary font-weight-light">
-            <p>myemail@email.com</p>
-            <span>|</span>
-            <p>+00 000 000 0000</p>
+            <p class="font-weight-light">Full name</p>
           </div>
         </div>
+      </div>
+      <div>
+        <p class="font-weight-light">Accountant</p>
+      </div>
+      <div>
+        <p class="font-weight-light">myemail@email.com</p>
+      </div>
+      <div>
+        <p class="font-weight-light">+00 000 000 0000</p>
       </div>
       <div class="flex items-center gap-3">
         <PeopleMemberOf :size="avatarSize" />
