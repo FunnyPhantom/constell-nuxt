@@ -7,7 +7,8 @@
       backgroundColor: color ?? '',
     }"
   >
-    <img :src="src" :alt="alt" v-if="src" />
+    <img :src="src" :alt="alt" v-if="src" class="img" />
+    <p v-else-if="text" class="text">{{ text }}</p>
   </div>
 </template>
 
@@ -22,14 +23,25 @@ const props = defineProps({
     type: String,
   },
   borderless: Boolean,
+  text: String,
 });
 </script>
 
 <style lang="sass" scoped>
 .avatar
-   width: 40px
-   height: 40px
-   background-color: #f0f0f0
-   border: 1px solid #e0e0e0
+   background-color: #fff
+   border: 1px solid $border_main_primary
    @extend .flex, .items-center, .justify-center, .rounded-full
+
+.img
+   width: 100%
+   height: 100%
+   @extend .rounded-full
+   margin: 1px
+
+.borderless
+    border: none
+.text
+    line-height: 1
+    @extend .flex, .items-center, .justify-center, .uppercase, .text-sm, .font-weight-medium
 </style>

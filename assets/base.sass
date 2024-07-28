@@ -30,16 +30,6 @@ $breakpoints: (m: 576px, l: 769px)
     @else
         @warn "Invalid breakpoint: #{$breakpoint}."
 
-// Usage example
-// .example-element
-//     font-size: 14px // Base size for smallest screens
-
-// @include respond-to(m)
-//     font-size: 16px // > 576px
-
-// @include respond-to(l)
-//     font-size: 18px // > 769px
-
 $spacing-01: 4px
 $spacing-02: 8px
 $spacing-03: 16px
@@ -51,12 +41,16 @@ $spacing-08: 120px
 
 $transition_duration: 0.1s
 
+.default-transition
+    transition: all $transition_duration 0.1s
+
+button
+    @extend .default-transition
+
 *, *:before, *:after
     box-sizing: border-box
 
-*
-    transition: all $transition_duration ease-out
-
+// Reset
 html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, ol, ul, li, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video
     margin: 0
     padding: 0
@@ -133,12 +127,16 @@ input
 .text-xl
     font-size: 45px
 
-.flex
-    display: flex
-.flex-column
-    flex-direction: column
-.flex-row
-    flex-direction: row
+.font-weight-light
+    font-weight: 300
+.font-weight-normal
+    font-weight: 400
+.font-weight-medium
+    font-weight: 500
+.font-weight-bold
+    font-weight: 700
+.font-weight-black
+    font-weight: 900
 
 // Text Colors
 .text-primary
@@ -147,6 +145,13 @@ input
     color: $text_main_primary-invert
 .text-secondary
     color: $text_main_seconday
+
+.uppercase
+    text-transform: uppercase
+.underline
+    text-decoration: underline
+.capitalize
+    text-transform: capitalize
 
 // Background Colors
 .bg-primary
@@ -174,11 +179,8 @@ input
 .font-fancy
     font-family: $font_fancy
 
-body
-    @extend .text-primary, .font-main, .bg-primary, .text-md
-
 // Spacing Utilities
-$spacing-values: ("1": $spacing-01,"2": $spacing-02,"3": $spacing-03,"4": $spacing-04,"5": $spacing-05,"6": $spacing-06,"7": $spacing-07,"8": $spacing-08)
+$spacing-values: ("0": 0px, "1": $spacing-01,"2": $spacing-02,"3": $spacing-03,"4": $spacing-04,"5": $spacing-05,"6": $spacing-06,"7": $spacing-07,"8": $spacing-08)
 
 $spacing-properties: ("m": "margin","p": "padding")
 
@@ -206,6 +208,27 @@ $spacing-directions: ("t": "top","r": "right","b": "bottom","l": "left")
         gap: $value
 
 // Flexbox Utilities
+.flex
+    display: flex
+.flex-inline
+    display: inline-flex
+
+.flex-column
+    flex-direction: column
+.flex-row
+    flex-direction: row
+.flex-column-reverse
+    flex-direction: column-reverse
+.flex-row-reverse
+    flex-direction: row-reverse
+
+.flex-wrap
+    flex-wrap: wrap
+.flex-nowrap
+    flex-wrap: nowrap
+.flex-wrap-reverse
+    flex-wrap: wrap-reverse
+
 .justify-start
     justify-content: flex-start
 .justify-end
@@ -216,6 +239,8 @@ $spacing-directions: ("t": "top","r": "right","b": "bottom","l": "left")
     justify-content: space-between
 .justify-around
     justify-content: space-around
+.justify-evenly
+    justify-content: space-evenly
 
 .items-start
     align-items: flex-start
@@ -227,6 +252,65 @@ $spacing-directions: ("t": "top","r": "right","b": "bottom","l": "left")
     align-items: baseline
 .items-stretch
     align-items: stretch
+
+.content-start
+    align-content: flex-start
+.content-end
+    align-content: flex-end
+.content-center
+    align-content: center
+.content-between
+    align-content: space-between
+.content-around
+    align-content: space-around
+.content-stretch
+    align-content: stretch
+
+.self-auto
+    align-self: auto
+.self-start
+    align-self: flex-start
+.self-end
+    align-self: flex-end
+.self-center
+    align-self: center
+.self-baseline
+    align-self: baseline
+.self-stretch
+    align-self: stretch
+
+.flex-grow-0
+    flex-grow: 0
+.flex-grow
+    flex-grow: 1
+
+.flex-shrink-0
+    flex-shrink: 0
+.flex-shrink
+    flex-shrink: 1
+
+.order-first
+    order: -1
+.order-last
+    order: 999
+.order-none
+    order: 0
+
+// Shorthand for flex: 1 1 0%
+.flex-1
+    flex: 1 1 0%
+
+// Shorthand for flex: 1 1 auto
+.flex-auto
+    flex: 1 1 auto
+
+// Shorthand for flex: 0 1 auto
+.flex-initial
+    flex: 0 1 auto
+
+// Shorthand for flex: none
+.flex-none
+    flex: none
 
 // Display Utilities
 .block
@@ -291,7 +375,19 @@ $spacing-directions: ("t": "top","r": "right","b": "bottom","l": "left")
 
 // Border Radius
 
+$border-radius-01: 4px
+$border-radius-02: 8px
+$border-radius-03: 16px
 .rounded-sm
-    border-radius: 4px
+    border-radius: $border-radius-01
 .rounded-full
     border-radius: 9999px
+
+/// override tags
+body
+    @extend .text-primary, .font-main, .bg-primary, .text-md
+a
+    @extend .text-primary, .font-main
+
+p
+    // line-height: 150%

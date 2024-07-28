@@ -8,8 +8,8 @@
       ['invert']: invert,
     }"
     :style="{
-      width: size ?? '',
-      height: size ?? '',
+      width: btnSizePx ?? '',
+      height: btnSizePx ?? '',
     }"
   >
     <Icon
@@ -42,16 +42,28 @@ const props = defineProps({
 });
 
 const iconClass = props.iconClass ?? ".text-primary";
+
+const btnSize = computed(() => {
+  if (props.size) return props.size;
+  return 36;
+});
+
+const btnSizePx = computed(() => {
+  return `${btnSize.value}px`;
+});
+
+const iconSize = computed(() => {
+  if (props.iconSize) return `${props.iconSize}px`;
+  return btnSize.value - 16;
+});
 </script>
 
 <style lang="sass">
 .btn
   @extend .rounded-full, .flex, .items-center, .justify-center
-  width: 40px
-  height: 40px
   border: none
   &:hover
-    @extend .bg-primary
+    @extend .bg-overlay-highlight
 
 .btn-primary
   @extend .bg-primary, .text-primary

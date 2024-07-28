@@ -1,37 +1,29 @@
 <template>
-  <div
-    :class="['team-card-container', 'flex', 'flex-column', 'responsive-gap']"
-  >
-    <p class="subtitle text-secondary text-xs">Teams</p>
-    <div class="flex flex-wrap gap-2">
-      <TeamCard />
-      <TeamCard />
-      <TeamCard />
+  <div :class="['flex', 'flex-column', 'responsive-gap']">
+    <p class="subtitle text-secondary text-xs">People</p>
+    <div class="flex flex-column people-section-container">
+      <PeopleCard />
+      <PeopleCard />
+      <PeopleCard />
     </div>
     <div
       class="flex justify-center items-center-responsive gap-2 text-secondary text-sm cursor-pointer"
     >
-      <Button icon-placement="left" icon-name="ic:round-plus" link="/team/add"
-        >New Team</Button
+      <Button icon-placement="left" icon-name="ic:round-plus" link="/people/add"
+        >New User</Button
       >
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import TeamCard from "~/components/Team/TeamCard.vue";
 import Button from "~/components/Button.vue";
 </script>
 
 <style lang="sass" scoped>
-.team-card-container
-  padding: 0 $spacing-03
-  @include respond-to(m)
-    &
-      padding: 0 0
 .subtitle
-  padding: 0 0
   @extend .uppercase
+  padding: 0 $spacing-03
   @include respond-to(m)
     &
       padding: 0 $spacing-03
@@ -49,4 +41,13 @@ import Button from "~/components/Button.vue";
   @include respond-to(l)
     &
       gap: $spacing-03
+.people-section-container
+  @include respond-to(m)
+    &
+      border: 1px solid $border_main_quarternary
+      border-radius: $border-radius-03
+    &>.people-card-container:first-child
+      border-top: 0
+    &>.people-card-container:last-child
+      border-bottom: 0
 </style>

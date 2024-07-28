@@ -1,9 +1,9 @@
-- [ ] create the back button
-- [ ] create the button more option
-- [ ] venue people
-  - [ ] teams section
-    - [ ] team card
-    - [ ] create the button add team
+- [x] create the back button
+- [x] create the button more option
+- [x] venue people
+  - [x] teams section
+    - [x] team card
+    - [x] create the button add team
   - [ ] people section
     - [ ] people card
     - [ ] create the button add people

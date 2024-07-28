@@ -1,13 +1,8 @@
 <template>
-  <div class="pb-8 pt-3 gap-4 flex flex-column">
+  <div class="pb-8 pt-3 flex flex-column page-container">
     <SearchBox />
     <TeamSection />
-    <div v-for="i of loremCount" :key="i">
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </p>
-    </div>
+    <PeopleSection />
   </div>
 </template>
 
@@ -15,4 +10,14 @@
 const loremCount = new Array(60).fill(0).map((_, i) => i);
 </script>
 
-<style></style>
+<style lang="sass" scoped>
+.page-container
+  gap: $spacing-04
+  @include respond-to(m)
+    &
+      gap: $spacing-05
+      padding: 0 $spacing-04
+  @include respond-to(l)
+    &
+      padding: 0 $spacing-05
+</style>
