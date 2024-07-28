@@ -17,10 +17,10 @@
   width: calc(100vw - $spacing-02 * 2)
   @include respond-to(m)
     &
-      max-width: calc((100vw - $spacing-04 * 2 - $spacing-02)/2)
+      max-width: calc((100vw - $spacing-04 * 2 - $spacing-02 - 60px)/2)
   @include respond-to(l)
     &
-      max-width: 350px
+      max-width: 310px
       flex: 1 1 275px
 .team-card-buttons
   &:hover

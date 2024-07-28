@@ -1,5 +1,7 @@
 <template>
-  <div class="flex justify-center items-center px-3 gap-2 search-box"></div>
+  <div class="flex px-3 pb-3 gap-2 search-box">
+    <p class="show-l text-xl font-fancy pt-4">Venue people</p>
+  </div>
 </template>
 
 <script lang="ts" setup></script>
