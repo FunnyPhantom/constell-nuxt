@@ -8,6 +8,7 @@
       size === 'sm' ? 'button-sm' : '',
       size === 'md' ? 'button-md' : '',
       size === 'lg' ? 'button-lg' : '',
+      invert ? 'invert' : '',
     ]"
   >
     <div v-if="iconPlacement === 'left'" class="px-1">
@@ -53,7 +54,6 @@ const props = defineProps({
   },
   iconPlacement: {
     type: String,
-    default: "left",
     validator: (value: string) => ["left", "right"].includes(value),
   },
   link: {
@@ -88,6 +88,7 @@ const iconSize = props.size === "sm" ? 16 : props.size === "md" ? 24 : 32;
 .button-primary
   @extend .bg-primary, .text-primary
 .button-secondary
+  border: 1px solid $border_main_quarternary
   @extend .bg-secondary, .text-secondary
 .button-ghost
   @extend .bg-transparent, .text-primary
@@ -99,4 +100,8 @@ const iconSize = props.size === "sm" ? 16 : props.size === "md" ? 24 : 32;
   @extend .text-lg
 .button-slot
   margin-bottom: 2px
+.invert
+  @extend .bg-primary-invert, .text-primary-invert
+  &:hover
+    @extend .bg-primary-invert-highlight
 </style>

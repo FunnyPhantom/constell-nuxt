@@ -4,10 +4,7 @@ export default defineNuxtConfig({
   devtools: {
     enabled: true,
   },
-  modules: [
-    "@pinia/nuxt", //
-    "@nuxtjs/google-fonts",
-  ],
+  modules: ["@pinia/nuxt", "@nuxtjs/google-fonts", "@formkit/nuxt"],
   css: ["normalize.css/normalize.css"],
   vite: {
     css: {
@@ -26,5 +23,8 @@ export default defineNuxtConfig({
         wght: [300, 400, 500, 600, 700],
       },
     },
+  },
+  formkit: {
+    autoImport: true,
   },
 });

@@ -10,8 +10,8 @@
   - [x] responsiveness
     - [x] md size
     - [x] lg size
-- [ ] bottom nav
-- [ ] side bar
+- [x] bottom nav
+- [x] side bar
 
 - [ ] edit user
 

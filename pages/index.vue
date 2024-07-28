@@ -6,9 +6,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-const loremCount = new Array(60).fill(0).map((_, i) => i);
-</script>
+<script lang="ts" setup></script>
 
 <style lang="sass" scoped>
 .page-container

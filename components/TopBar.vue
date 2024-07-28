@@ -6,7 +6,9 @@
       invert
       variant="ghost"
     />
-    <div class="title hide-l">Venue People</div>
+    <div :class="['title', hiddenTitleOnLarge ? 'hide-l' : '']">
+      {{ smartTitle }}
+    </div>
     <BtnIcon
       icon="bi:three-dots-vertical"
       invert
@@ -17,7 +19,22 @@
 </template>
 
 <script lang="ts" setup>
-import BtnIcon from "~/components/BtnIcon.vue";
+const route = useRoute();
+
+const smartTitle = computed(() => {
+  if (route.fullPath === "/") {
+    return "Venue People";
+  }
+  if (/user\/\d+\/edit/.test(route.fullPath)) {
+    return "Edit user";
+  }
+  return "Title";
+});
+
+const hiddenTitleOnLarge = computed(() => {
+  const shouldBeHidden = ["Venue People"];
+  return shouldBeHidden.includes(smartTitle.value);
+});
 </script>
 
 <style lang="sass" scoped>
