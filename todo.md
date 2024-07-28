@@ -13,18 +13,18 @@
 - [x] bottom nav
 - [x] side bar
 
-- [ ] edit user
+- [x] edit user
 
-  - [ ] profile
-  - [ ] full name and initials
-  - [ ] display name
-  - [ ] role
-  - [ ] email
-  - [ ] phone
-  - [ ] street
-  - [ ] city and postal code
-  - [ ] country
-  - [ ] save changes
+  - [x] profile
+  - [x] full name and initials
+  - [x] display name
+  - [x] role
+  - [x] email
+  - [x] phone
+  - [x] street
+  - [x] city and postal code
+  - [x] country
+  - [x] save changes
 
 - [ ] crud data for people (based on the task)
 - [ ] mock data for teams
