@@ -4,12 +4,12 @@
   - [x] teams section
     - [x] team card
     - [x] create the button add team
-  - [ ] people section
-    - [ ] people card
-    - [ ] create the button add people
-  - [ ] responsiveness
-    - [ ] md size
-    - [ ] lg size
+  - [x] people section
+    - [x] people card
+    - [x] create the button add people
+  - [x] responsiveness
+    - [x] md size
+    - [x] lg size
 - [ ] bottom nav
 - [ ] side bar
 

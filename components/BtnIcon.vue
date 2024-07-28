@@ -6,6 +6,7 @@
       'btn-secondary': variant === 'secondary',
       'btn-ghost': variant === 'ghost',
       ['invert']: invert,
+      'bg-primary-invert': invert,
     }"
     :style="{
       width: btnSizePx ?? '',
@@ -22,8 +23,6 @@
 </template>
 
 <script lang="ts" setup>
-import { Icon } from "@iconify/vue";
-
 const props = defineProps({
   icon: {
     type: String,
@@ -75,6 +74,4 @@ const iconSize = computed(() => {
   @extend .text-primary-invert
   &:hover
     @extend .bg-primary-invert-highlight
-.invert-bg
-  @extend .bg-primary-invert
 </style>

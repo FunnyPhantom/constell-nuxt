@@ -40,7 +40,6 @@
 </template>
 
 <script lang="ts" setup>
-import { Icon } from "@iconify/vue";
 const props = defineProps({
   variant: {
     type: String,
