@@ -15,7 +15,7 @@ config_nginx() {
     # cp nginx.conf to /etc/nginx/nginx.conf
     cp nginx.conf /etc/nginx/nginx.conf
     # copy constell.movahedmanesh.com file to /etc/nginx/sites-available
-    cp constell.movahedmanesh.com /etc/nginx/sites-available/constell.movahedmanesh.com
+    cp nginx-confs/constell.movahedmanesh.com /etc/nginx/sites-available/constell.movahedmanesh.com
     # create a symbolic link to /etc/nginx/sites-enabled
     ln -s /etc/nginx/sites-available/constell.movahedmanesh.com /etc/nginx/sites-enabled/
     # remove the default file
