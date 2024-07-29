@@ -77,7 +77,7 @@ Te project is structured as follows:
 
 ## Deployment
 
-WIP
+The website is deployed to http://constell.movahedmanesh.com/ via CloudFlare and Hetzner. Hetzner VM is used to build and host the code. And Cloudflare is used for DNS.
 
 ## Limitations
 
