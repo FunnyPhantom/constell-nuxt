@@ -1,3 +1,5 @@
+import patcher from "~/server/patcher";
+
 let counter = 4;
 export interface Team {
   iri: string;
@@ -55,12 +57,16 @@ export const createTeam = (partialTeam: TeamDTO) => {
 };
 
 export const updateTeam = (id: number, partialTeam: Partial<TeamDTO>) => {
-  const team = teams.find((team) => team.id === id);
-  if (!team) {
+  const teamIndex = teams.findIndex((team) => team.id === id);
+  if (teamIndex === -1) {
     return null;
   }
-  Object.assign(team, partialTeam);
-  return team;
+  const team = teams[teamIndex];
+  console.log({ team, partialTeam });
+  const updatedTeam = patcher(team, partialTeam);
+  teams[teamIndex] = updatedTeam;
+
+  return updatedTeam;
 };
 
 export const deleteTeam = (id: number) => {

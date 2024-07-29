@@ -20,13 +20,14 @@ export default defineEventHandler(async (event) => {
     phoneNumber,
   } = await readBody(event);
 
-  const { id: addressId } = await $fetch<Address>(
-    `/api/user_address/${address.id}`,
-    {
+  let addressId: number | undefined;
+  if (address) {
+    const { id } = await $fetch<Address>(`/api/user_address/${address.id}`, {
       method: "PATCH",
-      body: address as Address,
-    }
-  );
+      body: address,
+    });
+    addressId = id;
+  }
 
   const user = await updateUser(
     parseInt(id),

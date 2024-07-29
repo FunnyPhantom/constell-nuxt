@@ -1,5 +1,6 @@
 import { Team } from "~/server/api/team/data";
 import { Address } from "~/server/api/user_address/data";
+import patcher from "~/server/patcher";
 
 export interface User {
   iri: string;
@@ -278,7 +279,7 @@ export const updateUser = async (
     addressId,
   };
 
-  const updatedUser = Object.assign(user, updatedField);
+  const updatedUser = patcher(user, updatedField);
 
   if (!hydrate) {
     return { ...updatedUser, address: null, teams: [] };

@@ -18,7 +18,7 @@ export default defineEventHandler(async (event) => {
 
   const { id: addressId } = await $fetch<Address>("/api/user_address", {
     method: "POST",
-    body: JSON.stringify(address),
+    body: JSON.stringify(address ?? {}),
   });
 
   const addresses = await $fetch<Address[]>("/api/user_address");

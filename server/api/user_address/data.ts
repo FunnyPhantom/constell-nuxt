@@ -1,3 +1,5 @@
+import patcher from "~/server/patcher";
+
 export interface Address {
   iri: string;
   id: number;
@@ -8,6 +10,8 @@ export interface Address {
   country?: string;
   state?: string;
 }
+
+export type AddressDTOCreate = Omit<Address, "iri" | "id">;
 
 let counter = 5;
 const addresses: Array<Address> = [
@@ -73,7 +77,18 @@ export const updateAddress = (
   if (!address) {
     return null;
   }
-  const updatedAddress = Object.assign(address, partialAddress);
+
+  const { addressLineOne, addressLineTwo, city, country, postalCode, state } =
+    partialAddress;
+  const updateFields = {
+    addressLineOne,
+    addressLineTwo,
+    city,
+    country,
+    postalCode,
+    state,
+  };
+  const updatedAddress = patcher(address, updateFields);
 
   return updatedAddress;
 };
