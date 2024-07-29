@@ -1,75 +1,85 @@
-# Nuxt 3 Minimal Starter
+# Constell Interview Task
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## TL;DR
 
-## Setup
-
-Make sure to install the dependencies:
+Quick setup and run:
 
 ```bash
-# npm
+# Install dependencies
 npm install
 
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
+# Start development server
 npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+## Table of Contents
 
-Build the application for production:
+- [Description](#Description)
+- [Packages/Tech Used](#packages-used)
+- [Features](#features)
+- [Project Structure](#project-structure)
+- [Deployment](#Deployment)
+- [Limitations](#Limitations)
 
-```bash
-# npm
-npm run build
+## Description
 
-# pnpm
-pnpm run build
+This is the interview task for Constell. The task is to implement a small subset of a CRM system. The design was provided by Constell and the task was to implement the design as close as possible with the following features:
 
-# yarn
-yarn build
+- Component Design for various sections
+- CRUD for Data
+- Interactivity between the components
 
-# bun
-bun run build
-```
+## Packages/Technology Used
 
-Locally preview production build:
+- Vue3
+- typescript
+- Nuxt.js <3
+- Sass
+- Formkit
+- Pinia was installed but not used. global state sharing was handled by the useState utility provided by Nuxt.
+- Insomnia
+- Prettier
+- Iconify
 
-```bash
-# npm
-npm run preview
+## Features
 
-# pnpm
-pnpm run preview
+The following Views/Components/Features were implemented:
 
-# yarn
-yarn preview
+- Layout
+  - Side Bar
+  - Bottom Nav
+  - Top Nav
+- Venue People
+  - Teams Section
+    - Team Card
+    - Create the button add team
+  - People Section
+    - People Card
+    - Create the button add people
+- User Edit Page
+  - Form
+- CRUD
+  - People
+  - Teams
+  - Address
+- [Insomnia Client](https://insomnia.rest/) is provided for testing the API
 
-# bun
-bun run preview
-```
+## Project Structure
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Te project is structured as follows:
+
+- At the top level, the code adheres to the Nuxt standard project structure. (e.g. `pages`, `components`, `layouts`, etc.)
+- At the second level, the code is grouped based on functionality (e.g. `people`, `teams`, `address`, etc.). This way based on experience helps with scaling of the collaboration over the project.
+
+## Deployment
+
+WIP
+
+## Limitations
+
+- Axios wasn't used. Instead the provided $fetch utility for Nuxt was used.
+- No Persistence: Simple in-memory storage is used for the data. This means that the data will be lost on fresh deployment.
+- Though for the navigation both style of icon exist (outline and filled), it's not used since we don't have multi page routing.
+- The back button on the Top Bar is not responsive.
+- Phone number prefix select is not implemented. the prefix is fixated for the task.
+- Form Validation on the backend is not implemented. The form validation is only on the frontend.
