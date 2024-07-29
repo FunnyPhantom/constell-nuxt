@@ -3,14 +3,23 @@
     class="container flex justify-between items-center rounded-sm bg-secondary py-3 px-3 pr-2"
   >
     <div class="flex items-center gap-2">
-      <Avatar :size="36" color="#FFC9C9" borderless />
-      <p>back of the house</p>
+      <Avatar :size="36" :color="team.color" borderless :text="team.abbreviation" />
+      <p>{{ team.name }}</p>
     </div>
     <BtnIcon class="team-card-buttons" icon="mage:edit-pen" variant="ghost" />
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import type { Team } from "~/server/api/team/data";
+
+const props = defineProps({
+  team: {
+    type: Object as PropType<Team>,
+    required: true,
+  },
+});
+</script>
 
 <style lang="sass" scoped>
 .container

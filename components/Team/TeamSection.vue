@@ -4,9 +4,7 @@
   >
     <p class="subtitle text-secondary text-xs">Teams</p>
     <div class="flex flex-wrap gap-2">
-      <TeamCard />
-      <TeamCard />
-      <TeamCard />
+      <TeamCard v-for="team in teams" :key="team.id" :team="team" />
     </div>
     <div
       class="flex justify-center items-center-responsive gap-2 text-secondary text-sm cursor-pointer"
@@ -21,6 +19,8 @@
 <script lang="ts" setup>
 import TeamCard from "~/components/Team/TeamCard.vue";
 import Button from "~/components/Button.vue";
+
+const teams = ref(await $fetch("/api/team"));
 </script>
 
 <style lang="sass" scoped>

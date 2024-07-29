@@ -2,9 +2,12 @@
   <div :class="['flex', 'flex-column', 'responsive-gap']">
     <p class="subtitle text-secondary text-xs">People</p>
     <div class="flex flex-column people-section-container">
-      <PeopleCard />
-      <PeopleCard />
-      <PeopleCard />
+      <PeopleCard
+        v-for="person in people"
+        :key="person.id"
+        :person="person"
+        @delete="handlePeopleDelete"
+      />
     </div>
     <div
       class="flex justify-center items-center-responsive gap-2 text-secondary text-sm cursor-pointer"
@@ -18,6 +21,12 @@
 
 <script lang="ts" setup>
 import Button from "~/components/Button.vue";
+
+const people = ref(await $fetch("/api/user"));
+
+const handlePeopleDelete = async () => {
+  people.value = await $fetch("/api/user");
+};
 </script>
 
 <style lang="sass">

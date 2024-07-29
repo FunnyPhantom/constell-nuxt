@@ -19,13 +19,13 @@ export interface User {
   userPermissions: Array<string>;
 }
 
-export type UserDTO = Omit<User, "iri" | "id" | "addressId" | "teamIds"> & {
+export type UserDTO = Omit<User, "addressId" | "teamIds"> & {
   address: Address | null;
   teams: Array<Team>;
 };
 export type UserDTOCreate = Omit<
   UserDTO,
-  "address" | "teams" | "userPermissions"
+  "address" | "teams" | "userPermissions" | "iri" | "id"
 > & {
   addressId: number;
   teamIds: Array<number>;

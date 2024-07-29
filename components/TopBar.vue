@@ -5,6 +5,7 @@
       icon="material-symbols-light:chevron-left-rounded"
       invert
       variant="ghost"
+      @click="handleBack"
     />
     <div :class="['title', hiddenTitleOnLarge ? 'hide-l' : '']">
       {{ smartTitle }}
@@ -20,6 +21,11 @@
 
 <script lang="ts" setup>
 const route = useRoute();
+const router = useRouter();
+
+const handleBack = () => {
+  router.back();
+};
 
 const smartTitle = computed(() => {
   if (route.fullPath === "/") {
