@@ -12,6 +12,10 @@ npm install
 npm run dev
 ```
 
+OR
+
+Checkout: http://constell.movahedmanesh.com/
+
 ## Table of Contents
 
 - [Description](#Description)
