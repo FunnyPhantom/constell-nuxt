@@ -30,7 +30,20 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { onMounted } from "vue";
+
+onMounted(() => {
+  if (window) {
+    window.resetMocks = async () => {
+      await $fetch("/api/resetmock", {
+        method: "POST",
+      });
+      location.reload();
+    };
+  }
+});
+</script>
 
 <style lang="sass" scoped>
 $sidebar-width: 60px

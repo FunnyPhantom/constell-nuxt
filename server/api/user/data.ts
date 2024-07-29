@@ -33,7 +33,7 @@ export type UserDTOCreate = Omit<
 export type UserDTOUpdate = Partial<UserDTOCreate>;
 
 let counter = 5;
-const users: Array<User> = [
+const baseUsers: Array<User> = [
   {
     iri: "/api/user/1",
     id: 1,
@@ -115,6 +115,14 @@ const users: Array<User> = [
     functionName: "Explorer 🥾",
   },
 ];
+
+const getBaseUsers = () => JSON.parse(JSON.stringify(baseUsers)) as Array<User>;
+
+const users = getBaseUsers();
+
+export const resetUsers = () => {
+  users.splice(0, users.length, ...getBaseUsers());
+};
 
 const hydrateUser = (
   user: User,

@@ -12,7 +12,7 @@ export interface Team {
 
 type TeamDTO = Omit<Team, "iri" | "id">;
 
-const teams: Array<Team> = [
+const baseTeams: Array<Team> = [
   {
     iri: "/api/team/1",
     id: 1,
@@ -38,6 +38,14 @@ const teams: Array<Team> = [
     teamPermissions: [],
   },
 ];
+
+const getBaseTeams = () => JSON.parse(JSON.stringify(baseTeams)) as Array<Team>;
+
+const teams = getBaseTeams();
+
+export const resetTeams = () => {
+  teams.splice(0, teams.length, ...getBaseTeams());
+};
 
 export const getTeams = () => {
   return teams;

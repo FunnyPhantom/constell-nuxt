@@ -14,7 +14,7 @@ export interface Address {
 export type AddressDTOCreate = Omit<Address, "iri" | "id">;
 
 let counter = 5;
-const addresses: Array<Address> = [
+const baseAddresses: Array<Address> = [
   {
     iri: "/api/address/1",
     id: 1,
@@ -52,6 +52,15 @@ const addresses: Array<Address> = [
     state: "Zuid-Holland",
   },
 ];
+
+const getBaseAddresses = () =>
+  JSON.parse(JSON.stringify(baseAddresses)) as Array<Address>;
+
+const addresses = getBaseAddresses();
+
+export const resetAddresses = () => {
+  addresses.splice(0, addresses.length, ...getBaseAddresses());
+};
 
 export const getAddresses = () => {
   return addresses;
