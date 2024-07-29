@@ -4,7 +4,8 @@
 update_vm() {
     apt update -y
     apt upgrade -y
-    apt install nodejs npm -y
+    curl -s https://deb.nodesource.com/setup_18.x | sudo bash -
+    apt install -y nodejs
 }
 
 # Call the function
