@@ -23,3 +23,23 @@ build() {
 start() {
     node .output/server/index.mjs
 }
+
+
+# run the function based on arg
+case $1 in
+    update)
+        update_vm
+        ;;
+    deps)
+        deps
+        ;;
+    build)
+        build
+        ;;
+    start)
+        start
+        ;;
+    *)
+        echo "Invalid argument"
+        ;;
+esac
