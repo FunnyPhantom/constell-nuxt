@@ -35,7 +35,7 @@ certbot() {
 
 # install dependencies
 deps() {
-    npm install
+    npm install -y
 }
 
 # build
