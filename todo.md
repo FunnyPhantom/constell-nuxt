@@ -26,7 +26,7 @@
   - [x] country
   - [x] save changes
 
-- [ ] crud data for people (based on the task)
-- [ ] mock data for teams
+- [x] crud data for people (based on the task)
+- [x] mock data for teams
 
 - [ ] (optional) deploy under moha.movahedmanesh.com
