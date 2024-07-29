@@ -20,7 +20,7 @@
 import Button from "~/components/Button.vue";
 </script>
 
-<style lang="sass" scoped>
+<style lang="sass">
 .subtitle
   @extend .uppercase
   padding: 0 $spacing-03
@@ -46,8 +46,8 @@ import Button from "~/components/Button.vue";
     &
       border: 1px solid $border_main_quarternary
       border-radius: $border-radius-03
-    &>.people-card-container:first-child
+    & .people-card-container:first-child
       border-top: 0
-    &>.people-card-container:last-child
+    & .people-card-container:last-child
       border-bottom: 0
 </style>
